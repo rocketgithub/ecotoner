@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report
+            id="ecotoner_pago"
+            string="Pago"
+            model="account.payment"
+            report_type="qweb-pdf"
+            file="ecotoner.pago"
+            name="ecotoner.pago"
+        />
+
+    </data>
+</odoo>

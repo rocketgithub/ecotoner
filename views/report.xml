@@ -4,7 +4,7 @@
 
         <report
             id="ecotoner_pago"
-            string="Pago"
+            string="Recibo de Pago Ecotoner"
             model="account.payment"
             report_type="qweb-pdf"
             file="ecotoner.pago"

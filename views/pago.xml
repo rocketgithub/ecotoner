@@ -2,12 +2,13 @@
 <odoo>
     <template id="pago">
         <t t-call="web.html_container">
+            <t t-set="data_report_margin_top" t-value="12"/>
+            <t t-set="data_report_header_spacing" t-value="9"/>
+            <t t-set="data_report_dpi" t-value="110"/>
             <t t-foreach="docs" t-as="o">
                 <div class="article">
                     <div class="page">
-                        <!-- <div class="derecha" style="float:left">
-                            <img src="/web/binary/company_logo" style="width:100%"/>
-                        </div> -->
+                        <img src="/ecotoner/static/src/img/ecotoner.png" style="width:25%"/>
                         <h3><strong>Recibo de Caja: <span t-field="o.name"/></strong></h3>
                         <div class="row mt64">
                             <div class="col-6" t-if="o.payment_date">
@@ -56,7 +57,7 @@
                             <tbody>
                                 <tr t-foreach="o.invoice_ids" t-as="inv">
                                     <td><span t-field="inv.date_invoice"/></td>
-                                    <td><span t-field="inv.numero_fel"/></td>
+                                    <!-- <td><span t-field="inv.numero_fel"/></td> -->
                                     <td class="text-right"><span t-field="inv.amount_total"/></td>
                                     <td class="text-right"><span t-esc="inv.amount_total - inv.residual" t-options="{'widget': 'monetary', 'display_currency': inv.currency_id}"/></td>
                                     <td class="text-right"><span t-field="inv.residual"/></td>

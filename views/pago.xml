@@ -8,24 +8,6 @@
             <t t-foreach="docs" t-as="o">
                 <div class="article">
                     <div class="page">
-
-                        <!-- <div class="row mt32 mb32">
-                             <div class="col-xs-4">
-                                 <img src="/ecotoner/static/src/img/ecotoner.png" style="width:35%"/>
-                             </div>
-
-                             <div class="col-xs-4">
-                                 <span t-esc="o.company_id.name"/><br/>
-                                 <span t-esc="o.company_id.street"/> <span t-esc="o.company_id.street2"/>,<span t-esc="o.company_id.city"/><br/>
-                                 PBX: <span t-esc="o.company_id.phone"/>
-                             </div>
-                             <div class="col-xs-4">
-                                 <strong>TEST</strong>
-
-                             </div>
-                         </div> -->
-
-
                         <div class="encabezado">
                             <div style="float:left">
                                 <img src="/ecotoner/static/src/img/ecotoner.png" style="width:35%"/>
@@ -59,9 +41,6 @@
                             <div>
                                 <strong>Tipo de pago: </strong><span t-field="o.journal_id.name"/>
                             </div>
-                            <!-- <div class="col-6">
-                                <strong>Serie A: </strong><span t-field="o.serie_a"/>
-                             </div> -->
                         </div>
 
                         <div class="row">
@@ -72,28 +51,13 @@
                             </div>
                             <div class="col-6">
                                 <strong>No. Boleta: </strong><span t-field="o.numero_boleta"/>
-
-                                <!-- <strong>Serie B: </strong><span t-field="o.serie_b"/> -->
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6" t-if="o.amount">
                                 <strong>Monto Pagado: </strong><span t-field="o.amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
                             </div>
-                            <!-- <div class="col-6">
-                                <strong>No. Boleta: </strong><span t-field="o.numero_boleta"/>
-                            </div><br/> -->
                         </div>
-                        <!-- <div class="row">
-                            <div class="col-6">
-                                <strong>Tipo de pago: </strong><span t-field="o.journal_id.name"/>
-                             </div>
-                        </div> -->
-                        <!-- <div class="row">
-                            <div class="col-6">
-                                <strong>Banco: </strong><span t-field="o.banco"/>
-                             </div>
-                        </div> -->
                         <br/>
                         <br/>
                         <table class="table table-sm">

@@ -2,21 +2,45 @@
 <odoo>
     <template id="pago">
         <t t-call="web.html_container">
-            <t t-set="data_report_margin_top" t-value="12"/>
-            <t t-set="data_report_header_spacing" t-value="9"/>
+            <t t-set="data_report_margin_top" t-value="1"/>
+            <t t-set="data_report_header_spacing" t-value="1"/>
             <t t-set="data_report_dpi" t-value="110"/>
             <t t-foreach="docs" t-as="o">
                 <div class="article">
                     <div class="page">
-                        <img src="/ecotoner/static/src/img/ecotoner.png" style="width:25%"/>
-                        <h3><strong>Recibo de Caja: <span t-field="o.name"/></strong></h3>
+                        <div class="encabezado">
+                            <div style="float:left">
+                                <img src="/ecotoner/static/src/img/ecotoner.png" style="width:35%"/>
+                            </div>
+                            <div style="font-size: 110%; position: absolute; top: 0.5cm; left: 7cm;text-align:center">
+                                <span t-esc="o.company_id.name"/><br/>
+                                <span t-esc="o.company_id.street"/> <span t-esc="o.company_id.street2"/>,<span t-esc="o.company_id.city"/><br/>
+                                PBX: <span t-esc="o.company_id.phone"/><br/>
+                                VISITENOS: <span t-esc="o.company_id.website"/><br/>
+                                PATENTE DE COMERCIO No. 508904 F. 920 L. 470<br/>
+
+                            </div>
+
+                        </div>
+                        <div style="clear: both;"></div>
+                        <br/>
+                        <h3><strong>
+                            Recibo de Caja:
+                            <t t-if="o.tipo_ab == 'b'">
+                                <span t-field="o.name"/>
+                            </t>
+                            <t t-else="">
+                                <span t-field="o.serie"/>
+                            </t>
+
+                        </strong></h3><br/>
                         <div class="row mt64">
                             <div class="col-6" t-if="o.payment_date">
                                 <strong>Fecha de pago: </strong> <span t-field="o.payment_date"/>
                             </div>
-                            <div class="col-6">
-                                <strong>Serie A: </strong><span t-field="o.serie_a"/>
-                             </div>
+                            <div>
+                                <strong>Tipo de pago: </strong><span t-field="o.journal_id.name"/>
+                            </div>
                         </div>
 
                         <div class="row">
@@ -26,21 +50,13 @@
                                 </t><span t-field="o.partner_id"/>
                             </div>
                             <div class="col-6">
-                                <strong>Serie B: </strong><span t-field="o.serie_b"/>
+                                <strong>No. Boleta: </strong><span t-field="o.numero_boleta"/>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6" t-if="o.amount">
                                 <strong>Monto Pagado: </strong><span t-field="o.amount" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
                             </div>
-                            <div class="col-6">
-                                <strong>No. Boleta: </strong><span t-field="o.numero_boleta"/>
-                            </div><br/>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <strong>Banco: </strong><span t-field="o.banco"/>
-                             </div>
                         </div>
                         <br/>
                         <br/>
@@ -57,7 +73,7 @@
                             <tbody>
                                 <tr t-foreach="o.invoice_ids" t-as="inv">
                                     <td><span t-field="inv.date_invoice"/></td>
-                                    <!-- <td><span t-field="inv.numero_fel"/></td> -->
+                                    <td><span t-field="inv.numero_fel"/></td>
                                     <td class="text-right"><span t-field="inv.amount_total"/></td>
                                     <td class="text-right"><span t-esc="inv.amount_total - inv.residual" t-options="{'widget': 'monetary', 'display_currency': inv.currency_id}"/></td>
                                     <td class="text-right"><span t-field="inv.residual"/></td>

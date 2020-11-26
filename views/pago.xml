@@ -23,7 +23,7 @@
 
                         </div>
                         <div style="clear: both;"></div>
-                        <br/>
+                        <br/><br/><br/><br/>
                         <h3><strong>
                             Recibo de Caja:
                             <t t-if="o.tipo_ab == 'b'">
@@ -39,7 +39,7 @@
                                 <strong>Fecha de pago: </strong> <span t-field="o.payment_date"/>
                             </div>
                             <div>
-                                <strong>Tipo de pago: </strong><span t-field="o.journal_id.name"/>
+                                <strong>Tipo de pago: </strong><span t-field="o.tipo_pago"/>
                             </div>
                         </div>
 

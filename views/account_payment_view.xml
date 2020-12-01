@@ -10,6 +10,7 @@
                 <field name="journal_id" position="after">
                     <field name="tipo_ab"/>
                     <field name="serie" attrs=" {'invisible': [ ('tipo_ab','=','b' ) ]} "/>
+                    <field name="tipo_pago"/>
                 </field>
                 <field name="communication" position="after">
                     <field name="numero_boleta"/>
@@ -26,6 +27,7 @@
                 <field name="journal_id" position="after">
                     <field name="tipo_ab"/>
                     <field name="serie" attrs=" {'invisible': [ ('tipo_ab','=','b' ) ]} "/>
+                    <field name="tipo_pago"/>
                 </field>
                 <field name="communication" position="after">
                     <field name="numero_boleta"/>

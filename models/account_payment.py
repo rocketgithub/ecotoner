@@ -10,3 +10,4 @@ class account_payment(models.Model):
     tipo_ab= fields.Selection([ ('a', 'A'),('b', 'B'),],'A o B',default='b')
     numero_boleta = fields.Char('No. Boleta')
     banco = fields.Char('Banco')
+    tipo_pago= fields.Selection([ ('cheque', 'Cheque'),('transferencia', 'Transferencia'),],'Tipo de pago')
